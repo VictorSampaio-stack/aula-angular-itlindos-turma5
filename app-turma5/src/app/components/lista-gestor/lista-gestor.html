@@ -24,3 +24,34 @@
         </tbody>
     </table>
 </div>
+<form #f="ngForm" (ngSubmit)="addGestor(f)" style="margin-bottom:16px;">
+    <div>
+        <label>Nome</label><br />
+        <input name="nome" [(ngModel)]="newGestor.nome" />
+    </div>
+
+    <div>
+        <label>Email</label><br />
+        <input name="email" type="email" [(ngModel)]="newGestor.email" />
+    </div>
+
+    <div>
+        <label>Departamento</label><br />
+        <select name="departamentoId" [(ngModel)]="newGestor.departamentoId">
+            <option value="">-- selecione --</option>
+            <option *ngFor="let d of dptos()" [value]="d.id">{{ d.departamento }}</option>
+        </select>
+    </div>
+
+    <div style="margin-top:8px;">
+        <button type="submit">Adicionar gestor</button>
+    </div>
+</form>
+
+<hr />
+
+<ul>
+    <li *ngFor="let g of gestores()">
+        {{ g.nome }} — {{ g.email }} — {{ buscaDpto(g.departamentoId) }}
+    </li>
+</ul>

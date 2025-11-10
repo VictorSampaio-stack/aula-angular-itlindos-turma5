@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DepartamentoService } from '../../services/departamento-service';
+import { TipoDepartamento } from '../../models/tipo-departamento';
 
 @Component({
   selector: 'app-lista-departamentos',
@@ -9,10 +11,24 @@ import { FormsModule } from '@angular/forms';
 })
 export class ListaDepartamentos {
 
-  nomeCategoria: string = ''
+   nomeCategoria: string = '';
 
-  mudaNome(): void{
-    this.nomeCategoria = 'teste'
+  constructor( private apiDpto: DepartamentoService ){}
+
+  criarDepartamento(): void{
+
+    let objParaEnviar: TipoDepartamento = {
+      departamento: this.nomeCategoria
+    }
+    this.apiDpto.postCriarDepartamento(objParaEnviar).subscribe({
+      next: itemCriado => {
+        console.log(itemCriado)
+        alert('Departamento criado')
+      },
+      error: error => {
+        console.log(error)
+      }
+    })
   }
 
 }

@@ -19,4 +19,11 @@ export class DepartamentoService {
     return this.api.get<TipoDepartamento>(this.url + id)
   }
 
+  postCriarDepartamento(novoItem: TipoDepartamento): Observable<TipoDepartamento>{
+    return this.api.post<TipoDepartamento>(this.url, novoItem, {
+      headers: {
+        'Content-Type': 'json-application'
+      }
+    })
+  }
 }
