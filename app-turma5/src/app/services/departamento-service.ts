@@ -7,10 +7,16 @@ import { TipoDepartamento } from '../models/tipo-departamento';
   providedIn: 'root',
 })
 export class DepartamentoService {
+
   private api = inject(HttpClient)
   private readonly url: string = 'http://localhost:3000/departamento/'
 
-  getDeps(): Observable<TipoDepartamento[]> {
+  getDepartamentos(): Observable<TipoDepartamento[]> {
     return this.api.get<TipoDepartamento[]>(this.url)
   }
+
+  getDepartamentoPorId(id: string): Observable<TipoDepartamento> {
+    return this.api.get<TipoDepartamento>(this.url + id)
+  }
+
 }
