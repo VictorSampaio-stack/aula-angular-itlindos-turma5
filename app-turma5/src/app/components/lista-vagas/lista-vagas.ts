@@ -8,10 +8,11 @@ import { TipoGestor } from '../../models/tipo-gestor';
 
 // Para utilizar o Pipe de data
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lista-vagas',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './lista-vagas.html',
   styleUrl: './lista-vagas.scss',
 })
@@ -85,5 +86,18 @@ export class ListaVagas implements OnInit {
       return 'N/A'
     }
   }
+
+  excluirVaga(idVagaParaExcluir: string): void {
+    this.vagasService.deletePedidoVagas(idVagaParaExcluir).subscribe({
+      next: vagaDeletada => {
+        alert('Vaga excluída com sucesso!');
+        this.carregarPedidos(); // Recarrega a lista após exclusão
+      },
+      error: erro => {
+        console.error('Erro ao excluir a vaga:', erro);
+      }
+    }); 
+  }
+
 
 }

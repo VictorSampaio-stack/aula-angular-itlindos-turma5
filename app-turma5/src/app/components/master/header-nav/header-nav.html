@@ -1,13 +1,13 @@
 <header>
     <nav>
         <div class="logo">
-            {{ logoEmpresa }}
+            {{ logoEmpresa() }}
         </div>
         <ul>
             <li routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{exact: true}">
                 Pedidos vagas
             </li>
-            <li routerLink="/form-vaga" routerLinkActive="ativo" [routerLinkActiveOptions]="{exact: true}">
+            <li routerLink="/form-vaga/:id" routerLinkActive="ativo" [routerLinkActiveOptions]="{exact: true}">
                 Formulário vagas
             </li>
             <li routerLink="/gestores" routerLinkActive="ativo" [routerLinkActiveOptions]="{exact: true}">

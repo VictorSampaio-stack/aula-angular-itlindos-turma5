@@ -18,5 +18,19 @@ export class VagasService {
   getPedidoVagaPorId(id: string): Observable<PedidoVaga> {
     return this.http.get<PedidoVaga>(this.urlBase + id)
   }
+  postPedidoVagas(novoItem: PedidoVaga): Observable<PedidoVaga> {
+    return this.http.post<PedidoVaga>(this.urlBase, novoItem, {
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+  }
+  putPedidoVagas(novoItem: PedidoVaga, idVaga: string): Observable<PedidoVaga> {
+    return this.http.put<PedidoVaga>(this.urlBase + `/${idVaga}`, novoItem, {
+      headers: {
+        "Content-type": "application/json"
+      }
+    })
+  }
 
 }

@@ -38,6 +38,7 @@
                 <th>Motivo</th>
                 <th>Requisitos</th>
                 <th>Status</th>
+                <th>Edição</th>
             </tr>
         </thead>
         <tbody>
@@ -53,7 +54,7 @@
                 <td>{{ pedido.motivo }}</td>
                 <td>
                     @for(req of pedido.requisitos; track $index){
-                    <p>{{req}}</p>
+                    <option value="{{req}}">{{req}}</option>
                     }
                 </td>
                 <!-- Utilizando if inline -->
@@ -64,8 +65,15 @@
                 <td [class]="voltaClasseStatus(pedido.aprovacao)">
                     {{ pedido.aprovacao }}
                 </td>
+                <td>
+                    <button routerLink="/form-vaga/{{pedido.id}}">EDITAR</button>
+                </td>
+                <td>
+                    <button (click)="excluirVaga(vaga.id!)">EXCLUIR</button>
+                </td>
             </tr>
             }
         </tbody>
     </table>
+    <button routerLink="/form-vaga/novaVaga">Nova Vaga</button>
 </div>
