@@ -19,8 +19,38 @@
                 <td>{{ gestor.email }}</td>
                 <td>{{ gestor.cargo }}</td>
                 <td>{{ buscaDpto(gestor.departamentoId) }}</td>
+                <td>
+                    <app-botao [textoBotao]="'Deletar'" (noClique)="deletarGestor(gestor)"></app-botao>
+                </td>
             </tr>
             }
         </tbody>
     </table>
+</div>
+
+<div>
+    <h3>Adicionar Gestor</h3>
+    <div>
+        <label for="campoNome">Nome</label>
+        <input type="text" id="campoNome" [(ngModel)]="gestorNovo.nome" />
+    </div>
+    <div>
+        <label for="campoEmail">E-mail</label>
+        <input type="text" id="campoEmail" [(ngModel)]="gestorNovo.email" />
+    </div>
+    <div>
+        <label for="campoCargo">Cargo</label>
+        <input type="text" id="campoCargo" [(ngModel)]="gestorNovo.cargo" />
+    </div>
+    <div>
+        <label for="campoDpto">Departamento</label>
+        <select id="campoDpto" [(ngModel)]="gestorNovo.departamentoId">
+            @for(dpt of dptos(); track $index){
+            <option [value]="dpt.id"> {{dpt.departamento}} </option>
+            }
+        </select>
+    </div>
+    <button type="button" (click)="criaGestor()">
+        Criar Gestor
+    </button>
 </div>

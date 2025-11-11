@@ -7,7 +7,7 @@ import { ListaDepartamentos } from './components/lista-departamentos/lista-depar
 
 export const routes: Routes = [
     { path: '', component: ListaVagas },
-    { path: 'form-vaga', component: FormVagas },
+    { path: 'form-vaga/:id', component: FormVagas },
     { path: 'gestores', component: ListaGestor},
     { path: 'departamentos', component: ListaDepartamentos},
 ];

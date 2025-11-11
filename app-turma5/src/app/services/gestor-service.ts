@@ -7,16 +7,23 @@ import { TipoGestor } from '../models/tipo-gestor';
   providedIn: 'root',
 })
 export class GestorService {
-  
+
   private api = inject(HttpClient)
   private readonly url: string = 'http://localhost:3000/gestor/'
 
-  getGestores(): Observable<TipoGestor[]>{
+  getGestores(): Observable<TipoGestor[]> {
     return this.api.get<TipoGestor[]>(this.url)
   }
 
-  getGestorPorId(id: string): Observable<TipoGestor>{
+  getGestorPorId(id: string): Observable<TipoGestor> {
     return this.api.get<TipoGestor>(this.url + id)
   }
 
+  postCriaGestor(obj: TipoGestor): Observable<TipoGestor> {
+    return this.api.post<TipoGestor>(this.url, obj, {
+      headers: {
+        'Content-Type': 'json-application'
+      }
+    })
+  }
 }

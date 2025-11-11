@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 
@@ -10,4 +10,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderNav {
 
+  logoEmpresa: InputSignal<string> = input('')
+  
 }
