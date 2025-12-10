@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Lista de Funcionários</h2>
+
+    <button class="btn-novo" (click)="novoFuncionario()">+ Novo Funcionário</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Cargo</th>
+                <th>Salário</th>
+                <th>Departamento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let funcionario of funcionarios">
+                <td>{{ funcionario.nome }}</td>
+                <td>{{ funcionario.cargo }}</td>
+                <td>R$ {{ funcionario.salario | number:'1.2-2' }}</td>
+                <td>{{ buscarPorDepartamento(funcionario.departamentoId) }}</td>
+                <td class="acoes">
+                    <button class="btn-editar" (click)="editarFuncionario(funcionario.id)">Editar</button>
+                    <button class="btn-excluir" (click)="excluirFuncionario(funcionario.id)">Excluir</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

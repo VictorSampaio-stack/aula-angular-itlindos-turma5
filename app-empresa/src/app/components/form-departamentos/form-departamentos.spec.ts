@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderNav } from './header-nav';
+import { FormDepartamentos } from './form-departamentos';
 
-describe('HeaderNav', () => {
-  let component: HeaderNav;
-  let fixture: ComponentFixture<HeaderNav>;
+describe('FormDepartamentos', () => {
+  let component: FormDepartamentos;
+  let fixture: ComponentFixture<FormDepartamentos>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderNav]
+      imports: [FormDepartamentos]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HeaderNav);
+    fixture = TestBed.createComponent(FormDepartamentos);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
